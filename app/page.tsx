@@ -1,7 +1,19 @@
+import AboutUs from "@/components/AboutUs";
+import BrandLogosStrip from "@/components/BrandLogosStrip";
+import FaqSection from "@/components/FaqSection";
+import HeroSection from "@/components/HeroSection";
+import ServicesSection from "@/components/ServicesSection";
+import WorkProcess from "@/components/WorkProcess";
+
 export default function Home() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Bunny Estimates</h1>
-    </div>
+    <>
+      <HeroSection />
+      <AboutUs />
+      <ServicesSection />
+      <WorkProcess />
+      <BrandLogosStrip />
+      <FaqSection />
+    </>
   );
 }
