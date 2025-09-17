@@ -1,102 +1,111 @@
 // app/components/Footer.tsx
 "use client";
 
-import { Mail, Phone, MapPin, Share2 } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Share2,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Twitter,
+} from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#111] text-gray-300">
+    <footer className="relative bg-[#111] text-gray-300 font-mono">
       {/* Background world map + buildings */}
-      <div className="absolute inset-0 opacity-10">
-        <img
-          src="/w.jpg" // world background
-          alt="World Map"
-          className="w-full h-full object-cover"
-        />
-      </div>
+      <div className="absolute inset-0 opacity-10"></div>
       <div className="absolute bottom-0 right-0 opacity-20">
-        <img
-          src="/h1.png" // building outlines
-          alt="Buildings"
-          className="w-[300px] h-auto"
-        />
+        <img src="/f3.png" alt="Buildings" className="w-[300px] h-auto" />
       </div>
 
       {/* Top Contact Section */}
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center border-b border-gray-800">
-        {/* Contact Info */}
-        <div>
-          <p className="text-sm font-semibold text-orange-500 uppercase mb-2">
-            Contact Us
-          </p>
-          <h2 className="text-3xl font-bold text-white mb-6">
-            Have a project in mind? <br /> Contact with us today
-          </h2>
-          <p className="text-gray-400 mb-10 max-w-xl">
-            The successes of the construction projects lies behind
-            accurate estimates.
-          </p>
-
-          {/* Contact Grid */}
-          <div className="grid sm:grid-cols-2 gap-6">
-            <div className="flex items-start gap-3">
-              <MapPin className="w-6 h-6 text-orange-500" />
-              <div>
-                <h4 className="font-bold text-white">Canda</h4>
-                <p className="text-sm">
-                  5 Simcoe Street S #201 Oshawa ON L1H 8C1
-                </p>
-              </div>
+      <div>
+        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Contact Info */}
+          <div>
+            <div className="flex items-center  mb-2 gap-2">
+              <span>
+                <img src="/c.svg" alt="Logo" className="h-2 mb-4" />
+              </span>
+              <span className="text-xs font-normal text-white uppercase mb-2">
+                Contact Us
+              </span>
             </div>
+            <h2 className="text-3xl font-semibold font-mono text-white mb-4">
+              HAVE A PROJECT IN MIND? <br /> Contact with us today
+            </h2>
+            <p className="text-gray-400 mb-10 max-w-sm text-sm">
+              The successes of the construction projects lies behind accurate
+              estimates.
+            </p>
 
-            <div className="flex items-start gap-3">
-              <Phone className="w-6 h-6 text-orange-500" />
-              <div>
-                <h4 className="font-bold text-white">Phone Number</h4>
-                <p className="text-sm">(289) 801 7224</p>
+            {/* Contact Grid */}
+            <div className="grid sm:grid-cols-2 gap-12">
+              <div className="flex items-start gap-3">
+                <MapPin className="w-4 h-6 text-orange-500 shrink-0" />
+                <div>
+                  <h4 className="font-bold text-white">USA</h4>
+                  <p className="text-sm mt-1.5">
+                    5380 WALZEM RD, SAN ANTONIO, TEXAS, 78218
+                  </p>
+                </div>
               </div>
-            </div>
 
-            <div className="flex items-start gap-3">
-              <Mail className="w-6 h-6 text-orange-500" />
-              <div>
-                <h4 className="font-bold text-white">Email Address</h4>
-                {/* <p className="text-sm">Response within 2 hours</p> */}
-                <p className="text-sm">support@bennyestimates.com</p>
+              <div className="flex items-start gap-3">
+                <Phone className="w-4 h-6 text-orange-500 shrink-0" />
+                <div>
+                  <h4 className="font-bold text-white">Phone Number</h4>
+                  <p className="text-sm mt-1.5">(346) 215-1585</p>
+                </div>
               </div>
-            </div>
 
-            <div className="flex items-start gap-3">
-              <Share2 className="w-6 h-6 text-orange-500" />
-              <div>
-                <h4 className="font-bold text-white">Get Connected</h4>
-                <div className="flex gap-3 mt-2">
-                  <a href="#" className="hover:text-white">
-                    X
-                  </a>
-                  <a href="#" className="hover:text-white">
-                    Fb
-                  </a>
-                  <a href="#" className="hover:text-white">
-                    Insta
-                  </a>
-                  <a href="#" className="hover:text-white">
-                    Ln
-                  </a>
+              <div className="flex items-start gap-3 mt-4">
+                <Mail className="w-4 h-6 text-orange-500 shrink-0" />
+                <div>
+                  <h4 className="font-bold text-white">Email Address</h4>
+                  <p className="text-sm mt-1.5">Response within 2 hours</p>
+                  <p className="text-sm mt-1.5">Info@bennyestimates.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 mt-4">
+                <Share2 className="w-4 h-5 text-orange-500 shrink-0" />
+                <div>
+                  <h4 className="font-bold text-white">Get Connected</h4>
+                  <div className="flex gap-4 mt-1.5">
+                    <a href="#" className="hover:text-white">
+                      <Twitter className="w-4 h-5" />
+                    </a>
+                    <a href="#" className="hover:text-white">
+                      <Facebook className="w-4 h-5" />
+                    </a>
+                    <a href="#" className="hover:text-white">
+                      <Instagram className="w-4 h-5" />
+                    </a>
+                    <a href="#" className="hover:text-white">
+                      <Linkedin className="w-4 h-5" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Truck Image */}
+          <div className="flex justify-center mr-28">
+            <img
+              src="/footer.png"
+              alt="Truck"
+              className="max-h-[400px] object-contain"
+            />
+          </div>
         </div>
 
-        {/* Truck Image */}
-        <div className="flex justify-center">
-          <img
-            src="/footer.png"
-            alt="Truck"
-            className="max-h-[300px] object-contain"
-          />
-        </div>
+        {/* Border full width */}
+        <div className="w-full border-t border-gray-600"></div>
       </div>
 
       {/* Bottom Footer Section */}
@@ -105,8 +114,8 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-bold text-white">Benny Estimates</h3>
           <p className="mt-4 text-sm text-gray-400 max-w-xs">
-            The successes of the construction projects lies behind
-            accurate estimates
+            Essential for precise budgeting and efficient resource allocation in
+            construction projects.
           </p>
           <p className="mt-4 text-orange-500 font-semibold">Since 2000</p>
         </div>
@@ -114,7 +123,7 @@ export default function Footer() {
         {/* Middle - Links */}
         <div>
           <h4 className="text-lg font-bold text-white mb-4">Useful Links</h4>
-          <ul className="space-y-2 text-sm">
+          <ul className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
             <li>
               <a href="#" className="hover:text-orange-500">
                 About Us
@@ -191,8 +200,8 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="relative border-t border-gray-800 py-6 text-center text-gray-500 text-sm">
-        © 2024 Construz | All rights reserved
+      <div className="w-full border-t border-gray-600 py-6 text-center text-gray-400 text-sm">
+        © 2024 Benny Estimates | All rights reserved
       </div>
     </footer>
   );
