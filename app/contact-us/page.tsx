@@ -72,9 +72,9 @@ export default function GetAQuote() {
   };
 
   return (
-    <div className="font-sans text-gray-800">
+    <div className="font-sans text-gray-800 -mt-16">
       {/* 🔹 Top Banner */}
-      <div className="relative w-full h-64 md:h-80 flex items-center justify-center text-center">
+      <div className="relative w-full h-92 flex items-center justify-center text-center">
         <img
           src="/contact.jpg"
           alt="Get a Quote"

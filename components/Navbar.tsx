@@ -23,6 +23,7 @@ export default function Navbar() {
   const [modalOpen, setModalOpen] = useState(false);
   const [closing, setClosing] = useState(false); // 🔹 for modal animation
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [time, setTime] = useState("");
 
   useEffect(() => {
@@ -41,11 +42,11 @@ export default function Navbar() {
     "About Us",
     "Our Services",
     "Trades",
-    "Our Projects", // ❌ no dropdown
+    "Our Projects", // no dropdown
     "Blogs",
   ];
 
-  // 🔹 handle modal close with animation
+  // handle modal close with animation
   const handleCloseModal = () => {
     setClosing(true);
     setTimeout(() => {
@@ -56,45 +57,17 @@ export default function Navbar() {
 
   return (
     <>
-      {/* 🔹 Navbar */}
+      {/* Navbar */}
       <header className="fixed top-0 left-0 w-full z-50 bg-white font-mono ">
-        {/* Top Bar */}
-        <div className="bg-white">
-          <div className="max-w-2xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 py-1.5 text-sm font-sans bg-gray-100/50">
-            {/* Social Icons */}
-            <div className="flex items-center gap-3">
-              {[Facebook, Instagram, Linkedin].map((Icon, idx) => (
-                <div
-                  key={idx}
-                  className="w-6 h-6 flex items-center justify-center rounded-full text-[#EA5501] bg-[#EA5501]/10 cursor-pointer transition-colors duration-300 hover:bg-[#EA5501] hover:text-white"
-                >
-                  <Icon size={14} />
-                </div>
-              ))}
-            </div>
-
-            {/* Location */}
-            <div className="flex items-center gap-8 text-gray-600 mt-2 md:mt-0">
-              <div className="flex items-center gap-2 mr-14">
-                <MapPin size={14} className="text-[#EA5501]" />
-                <span className="text-xs">
-                  5380 WALZEM RD, SAN ANTONIO, TEXAS, 78218, USA
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Navbar Links */}
-        <div className="max-w-8xl mx-auto flex items-center justify-between px-6 md:px-12 -mt-8 relative">
+        <div className="max-w-8xl mx-auto -mt-1 flex items-center justify-between px-6 md:px-12 relative">
           {/* Logo */}
-          <div className="flex items-center md:mb-12 gap-6">
+          <div className="flex items-center  gap-6">
             <Link href="/">
               <Image
                 src="/logo.png"
                 alt="Bunny Estimates"
                 width={120}
-                height={45}
+                height={20}
                 priority
                 className="ml-2"
               />
@@ -156,14 +129,12 @@ export default function Navbar() {
             ))}
 
             {/* CTA Button */}
-            <Link href="/contact-us">
-              <button className="px-5 py-2 cursor-pointer bg-[#EA5501] text-white font-heading font-semibold rounded-full flex items-center gap-2 group text-sm shadow hover:shadow-lg transition">
-                <span>Affordable Estimates (30% Off)</span>
-                <span className="p-1 rounded-full bg-white/20 group-hover:translate-x-1 transition-transform">
-                  <ArrowRight size={14} />
-                </span>
-              </button>
-            </Link>
+            <button className="px-5 py-2 cursor-pointer bg-[#EA5501] text-white font-heading font-semibold rounded-full flex items-center gap-2 group text-sm shadow hover:shadow-lg transition">
+              <span>Affordable Estimates (30% Off)</span>
+              <span className="p-1 rounded-full bg-white/20 group-hover:translate-x-1 transition-transform">
+                <ArrowRight size={14} />
+              </span>
+            </button>
           </nav>
 
           {/* Right Side */}
@@ -204,25 +175,99 @@ export default function Navbar() {
             <div className="hidden md:block w-px h-28 bg-gray-300" />
 
             {/* Call */}
-            <div className="hidden md:flex items-center gap-3">
-              <div className="w-12 h-12 flex items-center justify-center bg-[#EA5501] rounded-full">
-                <Phone className="text-white" size={20} />
+            <Link href="/contact-us">
+              <div className="hidden md:flex items-center gap-3">
+                <div className="w-12 h-12 flex items-center justify-center bg-[#EA5501] rounded-full">
+                  <Phone className="text-white" size={20} />
+                </div>
+                <div>
+                  <p className="text-xs font-sans text-gray-500 uppercase tracking-wide">
+                    Call Anytime
+                  </p>
+                  <p className="font-heading font-semibold text-gray-900">
+                    (346) 215-1585
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="text-xs font-sans text-gray-500 uppercase tracking-wide">
-                  Call Anytime
-                </p>
-                <p className="font-heading font-semibold text-gray-900">
-                  (346) 215-1585
-                </p>
-              </div>
-            </div>
+            </Link>
           </div>
         </div>
+
+        {/* 🔹 Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-t shadow-lg p-6 space-y-6 font-sans">
+            {navLinks.map((link, idx) => (
+              <div key={idx}>
+                <button
+                  className="flex justify-between items-center w-full text-gray-700 font-medium"
+                  onClick={() =>
+                    setOpenDropdown(openDropdown === link ? null : link)
+                  }
+                >
+                  {link}
+                  {link !== "Our Projects" && (
+                    <ChevronDown
+                      size={18}
+                      className={`transition-transform ${
+                        openDropdown === link ? "rotate-180" : ""
+                      }`}
+                    />
+                  )}
+                </button>
+
+                {link !== "Our Projects" && openDropdown === link && (
+                  <div className="mt-2 ml-4 space-y-0 text-sm text-gray-600 border-l pl-3">
+                    {(link === "About Us"
+                      ? ["Service Areas", "Testimonials"]
+                      : [
+                          "Cost Estimating Service",
+                          "Quantity Takeoff",
+                          "Material & Labor Pricing",
+                          "Bid Preparation",
+                          "Project Scheduling",
+                        ]
+                    ).map((item, i, arr) => (
+                      <div key={i}>
+                        <a href="#" className="block py-2 hover:text-[#EA5501]">
+                          {item}
+                        </a>
+                        {i < arr.length - 1 && (
+                          <hr className="border-gray-200 my-1" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+
+            {/* CTA Button */}
+            <button className="w-full px-5 py-3 bg-[#EA5501] text-white rounded-lg shadow font-semibold">
+              Affordable Estimates (30% Off)
+            </button>
+
+            {/* Call Info (same as desktop) */}
+            <Link href="/contact-us">
+              <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-lg shadow">
+                <div className="w-12 h-12 flex items-center justify-center bg-[#EA5501] rounded-full">
+                  <Phone className="text-white" size={20} />
+                </div>
+                <div>
+                  <p className="text-xs font-sans text-gray-500 uppercase tracking-wide">
+                    Call Anytime
+                  </p>
+                  <p className="font-heading font-semibold text-gray-900">
+                    (346) 215-1585
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </div>
+        )}
       </header>
 
       {/* 🔹 Main Content (padding for fixed navbar) */}
-      <main className="pt-40">{/* Yahan baaki page ka content aayega */}</main>
+      <main className="pt-40">{/* Page Content */}</main>
 
       {/* 🔹 Search Overlay */}
       {searchOpen && (

@@ -1,9 +1,11 @@
+"use client";
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Toaster } from "sonner";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,10 +20,10 @@ const poppins = Poppins({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Bunny Estimates",
-  description: "Accurate estimates, happy clients.",
-};
+// export const metadata: Metadata = {
+//   title: "Bunny Estimates",
+//   description: "Accurate estimates, happy clients.",
+// };
 
 export default function RootLayout({
   children,
@@ -34,7 +36,9 @@ export default function RootLayout({
         className={`${inter.variable} ${poppins.variable} antialiased font-sans`}
       >
         <Navbar />
-        <main className="bg-[#FAFAFA]">{children}</main>
+        <main className="bg-[#FAFAFA]">
+          <ParallaxProvider>{children}</ParallaxProvider>
+        </main>
         <Toaster richColors position="top-center" />
         <Footer />
       </body>
