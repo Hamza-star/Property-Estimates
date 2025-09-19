@@ -1,8 +1,7 @@
-// app/components/WorkProcess.tsx
 "use client";
 
 import { motion } from "framer-motion";
-import { Beaker, Lightbulb, Users, Wrench } from "lucide-react"; // icons for timeline
+import { Beaker, Lightbulb, Users, Wrench } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import MovingLine2 from "./MovingLine2";
 
@@ -57,8 +56,8 @@ export default function WorkProcess() {
 
           {/* Timeline */}
           <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-1/2 top-0 h-full w-1 bg-gray-200 transform -translate-x-1/2"></div>
+            {/* Vertical line only for desktop */}
+            <div className="hidden lg:block absolute left-1/2 top-0 h-full w-1 bg-gray-200 transform -translate-x-1/2"></div>
 
             <div className="space-y-20">
               {steps.map((step, idx) => (
@@ -66,7 +65,7 @@ export default function WorkProcess() {
                   key={step.id}
                   step={step}
                   isLeft={idx % 2 === 0}
-                  delay={idx * 0.3} // 👈 delay grows with index
+                  delay={idx * 0.3}
                 />
               ))}
             </div>
@@ -101,12 +100,12 @@ function StepCard({
       initial={{ opacity: 0, x: isLeft ? -100 : 100 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.7, ease: "easeOut", delay }}
-      className={`relative flex items-center ${
-        isLeft ? "justify-start" : "justify-end"
+      className={`relative flex flex-col items-center text-center lg:text-left lg:flex-row ${
+        isLeft ? "lg:justify-start" : "lg:justify-end"
       }`}
     >
-      {/* Timeline Icon */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-2">
+      {/* Timeline Icon - Desktop (center line) */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-2 hidden lg:flex">
         <motion.div
           animate={inView ? { scale: [1, 1.2, 1] } : {}}
           transition={{ duration: 1.2, repeat: Infinity }}
@@ -122,9 +121,20 @@ function StepCard({
 
       {/* Step Card */}
       <motion.div
-        className={`w-4/12 p-6 rounded-2xl shadow-md bg-white transition transform duration-300 text-left`} // 👈 always left-align text
+        className="w-full lg:w-4/12 p-6 rounded-2xl shadow-md bg-white transition transform duration-300"
         whileHover={{ scale: 1.05 }}
       >
+        {/* Icon for Mobile (above image) */}
+        <div className="flex justify-center mb-4 lg:hidden">
+          <div className="w-12 h-12 flex items-center justify-center rounded-full border-4 shadow-md bg-white border-gray-300">
+            <Icon
+              className={`w-6 h-6 transition-colors duration-300 ${
+                inView ? "text-[#EA5501]" : "text-black"
+              }`}
+            />
+          </div>
+        </div>
+
         {/* Image */}
         <img
           src={step.image}
@@ -133,18 +143,23 @@ function StepCard({
         />
 
         {/* Step Number */}
-        <span className="block text-6xl font-mono font-extrabold text-orange-500 mb-2">
+        <span className="block text-5xl md:text-6xl font-mono font-extrabold text-orange-500 mb-2">
           {step.id}
         </span>
 
+        {/* Title */}
         <h3
-          className={`text-lg font-bold font-mono mb-2 ${
+          className={`text-lg md:text-xl font-bold  mb-2 ${
             inView ? "text-black" : "text-gray-900"
           }`}
         >
           {step.title}
         </h3>
-        <p className="text-gray-600 font-mono text-sm">{step.description}</p>
+
+        {/* Description */}
+        <p className="text-gray-600 font-sans text-sm md:text-base">
+          {step.description}
+        </p>
       </motion.div>
     </motion.div>
   );

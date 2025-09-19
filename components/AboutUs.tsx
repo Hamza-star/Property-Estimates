@@ -85,7 +85,7 @@ export default function AboutUs() {
                 </li>
               </ul> */}
 
-                <p className="text-gray-600 text-base leading-relaxed max-w-xl">
+                <p className="text-gray-600 -mt-2 text-base leading-relaxed max-w-xl">
                   Our goal is to transform contractors’ potential projects into
                   profitable realities, allowing them to focus on other aspects
                   of their business. With over 10 years of experience in the

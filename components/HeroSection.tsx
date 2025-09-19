@@ -36,8 +36,7 @@ export default function HeroSection() {
 
   return (
     <>
-      <MovingLine />
-      <section className="relative w-full min-h-screen overflow-hidden font-sans bg-white">
+      <section className="relative w-full min-h-screen  overflow-hidden font-sans bg-white">
         {/* 🔹 Corner Images */}
         <motion.div
           animate={{ y: [0, -15, 0] }}

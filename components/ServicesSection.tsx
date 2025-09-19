@@ -1,9 +1,10 @@
-// app/components/ServicesSection.tsx
 "use client";
 
+import { motion, useAnimation } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect } from "react";
 
 const services = [
   {
@@ -65,8 +66,21 @@ const services = [
 ];
 
 export default function ServicesSection() {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start({
+      x: ["0%", "-50%"],
+      transition: {
+        repeat: Infinity,
+        duration: 30,
+        ease: "linear",
+      },
+    });
+  }, [controls]);
+
   return (
-    <section className="relative bg-gray-50 py-20 overflow-hidden">
+    <section className="relative bg-gray-50 py-20 cursor-pointer overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Heading */}
         <motion.div
@@ -88,12 +102,18 @@ export default function ServicesSection() {
         <div className="relative w-full overflow-hidden">
           <motion.div
             className="flex gap-6 w-max"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{
-              repeat: Infinity,
-              duration: 30,
-              ease: "linear",
-            }}
+            animate={controls}
+            onMouseEnter={() => controls.stop()} // ⏸ hover pe stop
+            onMouseLeave={() =>
+              controls.start({
+                x: ["0%", "-50%"],
+                transition: {
+                  repeat: Infinity,
+                  duration: 30,
+                  ease: "linear",
+                },
+              })
+            } // ▶️ hover hatate hi resume
           >
             {[...services, ...services].map((service, index) => (
               <div
@@ -139,9 +159,11 @@ export default function ServicesSection() {
 
         {/* CTA Button */}
         <div className="text-center">
-          <button className="mt-12 inline-flex items-center gap-2 bg-[#EA5501] hover:bg-black text-white font-semibold px-8 py-4 rounded-md shadow-md transition-all duration-500 hover:scale-105">
-            View All Services <ArrowRight className="w-5 h-5" />
-          </button>
+          <Link href="/projects" className="text-center">
+            <button className="mt-12 cursor-pointer inline-flex items-center gap-2 bg-[#EA5501] hover:bg-black text-white font-semibold px-8 py-4 rounded-md shadow-md transition-all duration-500 hover:scale-105">
+              View All Services <ArrowRight className="w-5 h-5" />
+            </button>
+          </Link>
         </div>
       </div>
     </section>

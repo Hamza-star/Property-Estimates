@@ -37,7 +37,7 @@ const blogs = [
 export default function BlogsSection() {
   return (
     <>
-      <section className="bg-[#F9FAFB] font-mono py-20">
+      <section className="bg-[#F9FAFB] py-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Heading */}
           <div className="text-center mb-16">
@@ -75,7 +75,7 @@ export default function BlogsSection() {
 
                 {/* Blog Content */}
                 <div className="p-6">
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-gray-500 font-mono">
                     {blog.date} • {blog.author}
                   </p>
                   <h3 className="text-lg font-bold text-gray-900 mt-2 group-hover:text-[#EA5501] transition-colors">
@@ -86,7 +86,7 @@ export default function BlogsSection() {
                   </p>
                   <Link
                     href={`/blog/${blog.id}`}
-                    className="inline-block mt-4 text-[#EA5501] font-semibold hover:underline"
+                    className="inline-block mt-4 font-mono text-[#EA5501] font-semibold hover:underline"
                   >
                     Read More →
                   </Link>

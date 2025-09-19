@@ -14,7 +14,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#111] text-gray-300 font-mono">
+    <footer className="relative bg-[#111] text-gray-300 ">
       {/* Background world map + buildings */}
       <div className="absolute inset-0 opacity-10"></div>
       <div className="absolute bottom-0 right-0 opacity-20">
