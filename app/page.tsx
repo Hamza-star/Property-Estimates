@@ -27,9 +27,9 @@ export default function Home() {
       {/* <ProjectsPage /> */}
       <WhyChooseUs />
       <BlogsSection />
+      <CtaSection />
       <Testimonials />
       {/* <FaqSection /> */}
-      <CtaSection />
     </>
   );
 }

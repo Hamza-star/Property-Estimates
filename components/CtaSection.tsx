@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function CtaSection() {
   return (
     <div className="">
-      <div className="mx-auto max-w-7xl py-12 sm:px-6 sm:py-16 lg:px-8">
+      <div className="mx-auto max-w-7xl sm:px-6 sm:py-16 lg:px-8">
         <div className="relative isolate overflow-hidden bg-[#EA5501] px-6 pt-12 sm:rounded-3xl sm:px-12 md:pt-16 lg:flex lg:gap-x-16 lg:px-20 lg:pt-0">
           {/* Background Gradient */}
           <svg
@@ -30,9 +30,9 @@ export default function CtaSection() {
           </svg>
 
           {/* Text Section */}
-          <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-20 lg:text-left">
+          <div className="mx-auto  max-w-md text-center lg:mx-0 lg:flex-auto lg:py-20 lg:text-left">
             <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-white">
-              Build smarter with our estimation solutions.
+              Let's Discuss Your Construction Estimating Needs
             </h2>
             <p className="mt-4 text-base sm:text-lg text-orange-100">
               From residential to commercial projects, our platform gives you
