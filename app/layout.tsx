@@ -20,15 +20,15 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Bunny Estimates | Construction Cost Estimation Services",
+  title: "benny Estimates | Construction Cost Estimation Services",
   description:
-    "Get accurate construction cost estimates, quantity takeoffs, and project planning with Bunny Estimates. Fast, reliable, and affordable services.",
+    "Get accurate construction cost estimates, quantity takeoffs, and project planning with benny Estimates. Fast, reliable, and affordable services.",
   keywords: [
     "construction estimates",
     "cost estimation",
     "residential estimating",
     "commercial estimating",
-    "Bunny Estimates",
+    "benny Estimates",
   ],
   icons: {
     icon: "/favicon.ico",
@@ -36,17 +36,17 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Bunny Estimates | Accurate Construction Cost Estimation",
+    title: "Benny Estimates | Accurate Construction Cost Estimation",
     description:
       "Professional cost estimating services for residential and commercial projects.",
     url: "https://bennyestimates.com", // apna domain yahan dalna
-    siteName: "Bunny Estimates",
+    siteName: "Benny Estimates",
     images: [
       {
         url: "/og-image.png", // ek 1200x630 px image banao
         width: 1200,
         height: 630,
-        alt: "Bunny Estimates Preview",
+        alt: "Benny Estimates Preview",
       },
     ],
     locale: "en_US",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bunny Estimates | Construction Cost Estimation Services",
+    title: "Benny Estimates | Construction Cost Estimation Services",
     description:
       "Get transparent and precise cost estimates for residential & commercial projects.",
     images: ["/og-image.png"],
