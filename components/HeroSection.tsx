@@ -9,6 +9,7 @@ import { ArrowUpRight } from "lucide-react";
 import "swiper/css";
 import "swiper/css/pagination";
 import MovingLine from "./MovingLine";
+import MovingLine2 from "./MovingLine2";
 
 export default function HeroSection() {
   const slides = [
@@ -36,26 +37,27 @@ export default function HeroSection() {
 
   return (
     <>
-      <section className="relative w-full min-h-screen  overflow-hidden font-sans bg-white">
+      <section className="relative py-12 w-full min-h-screen  overflow-hidden  font-sans bg-white">
+        <MovingLine />
         {/* 🔹 Corner Images */}
         <motion.div
           animate={{ y: [0, -15, 0] }}
           transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-          className="absolute left-0 top-1/2 -translate-y-1/2"
+          className="absolute left-0 top-1/2 -translate-y-1/2 "
         >
           <Image src="/h2.png" alt="Corner Left" width={30} height={30} />
         </motion.div>
         <motion.div
           animate={{ y: [0, 20, 0] }}
           transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
-          className="absolute right-0 top-1/2 -translate-y-1/2 md:block hidden"
+          className="absolute right-0 top-2/3 -translate-y-1/2 md:block hidden"
         >
-          <Image src="/h1.png" alt="Corner Right" width={300} height={100} />
+          <Image src="/h1.png" alt="Corner Right" width={300} height={10} />
         </motion.div>
         <motion.div
           animate={{ y: [0, 20, 0] }}
           transition={{ repeat: Infinity, duration: 3.5, ease: "easeInOut" }}
-          className="absolute right-0 top-1/6 -translate-y-1/2"
+          className="absolute right-0 top-1/4 -translate-y-1/2"
         >
           <Image src="/h4.png" alt="Corner Right" width={30} height={30} />
         </motion.div>
@@ -155,7 +157,7 @@ export default function HeroSection() {
         </Swiper>
 
         {/* 🔹 Short Titles Row */}
-        <div className="absolute md:bottom-40 left-1/2 -translate-x-1/2 flex gap-6 z-50">
+        <div className="absolute md:bottom-28 left-1/2 -translate-x-1/2 flex gap-6 z-50">
           {slides.map((slide, idx) => (
             <span
               key={idx}
@@ -168,7 +170,7 @@ export default function HeroSection() {
           ))}
         </div>
       </section>
-      <MovingLine />
+      <MovingLine2 />
     </>
   );
 }

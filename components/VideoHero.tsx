@@ -50,7 +50,7 @@ export default function VideoHero() {
           </div>
         </div>
       </section>
-      <MovingLine2 />
+      {/* <MovingLine2 /> */}
     </>
   );
 }

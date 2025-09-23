@@ -20,7 +20,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "benny Estimates | Construction Cost Estimation Services",
+  title: "Benny Estimates | Construction Cost Estimation Services",
   description:
     "Get accurate construction cost estimates, quantity takeoffs, and project planning with benny Estimates. Fast, reliable, and affordable services.",
   keywords: [
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
     creator: "@yourhandle", // agar Twitter handle hai to add karo
   },
-  metadataBase: new URL("https://yourdomain.com"), // apna domain
+  metadataBase: new URL("https://www.bennyestimates.com/"), // apna domain
 };
 
 export default function RootLayout({
@@ -74,6 +74,7 @@ export default function RootLayout({
         className={`${inter.variable} ${poppins.variable} antialiased font-sans`}
       >
         <Navbar />
+
         <TopLoader />
         <main className="bg-[#FAFAFA]">{children}</main>
         <Toaster richColors position="top-center" />

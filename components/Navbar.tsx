@@ -16,6 +16,7 @@ import {
   Mail,
 } from "lucide-react";
 import Link from "next/link";
+import MovingLine from "./MovingLine";
 
 export default function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -28,12 +29,33 @@ export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
 
+  // ✅ NavLinks with href + optional dropdown
   const navLinks = [
-    "About Us",
-    "Our Services",
-    "Trades",
-    "Our Projects",
-    "Blogs",
+    {
+      name: "About Us",
+      href: "/about",
+      dropdown: [
+        { name: "Service Areas", href: "/about/service-areas" },
+        { name: "Testimonials", href: "/about/testimonials" },
+      ],
+    },
+    {
+      name: "Our Services",
+      href: "/services",
+      dropdown: [
+        { name: "Residential Service", href: "/services/ResidentialService" },
+        {
+          name: "Construction Consultant Service",
+          href: "/services/ConstructionConsultant",
+        },
+        { name: "Industrial Service", href: "/services/IndustrialService" },
+        { name: "Preliminary Service", href: "/services/PreliminaryService" },
+        { name: "Virtual Bid", href: "/services/virtual-bid" },
+      ],
+    },
+    { name: "Trades", href: "/trades" },
+    { name: "Our Projects", href: "/projects" },
+    { name: "Blogs", href: "/blogs" },
   ];
 
   // fake searchable content
@@ -104,8 +126,8 @@ export default function Navbar() {
   return (
     <>
       {/* Navbar */}
-      <header className="fixed top-0 left-0 w-full z-50 bg-[#FAFAFA] font-mono">
-        <div className="max-w-8xl mx-auto -mt-1 flex items-center justify-between px-6 md:px-12 relative">
+      <header className="fixed top-0 left-0 w-full z-50 bg-white font-mono ">
+        <div className="max-w-screen-xl mx-auto flex items-center justify-between px-6 md:px-12 h-20 relative">
           {/* Logo */}
           <div className="flex items-center gap-6">
             <Link href="/" onClick={() => setMobileMenuOpen(false)}>
@@ -124,57 +146,35 @@ export default function Navbar() {
           <nav className="hidden md:flex gap-6 items-center text-[15px] font-heading font-medium">
             {navLinks.map((link, idx) => (
               <div key={idx} className="relative group cursor-pointer">
-                {link === "Our Projects" ? (
-                  <Link href="/projects">
-                    <span className="flex items-center gap-1 text-gray-700 hover:text-[#EA5501] transition">
-                      {link}
-                    </span>
+                {!link.dropdown ? (
+                  <Link
+                    href={link.href}
+                    className="flex items-center gap-1 text-gray-700 hover:text-[#EA5501] transition"
+                  >
+                    {link.name}
                   </Link>
                 ) : (
                   <>
                     <span className="flex items-center gap-1 text-gray-700 hover:text-[#EA5501] transition">
-                      {link}
+                      {link.name}
                       <ChevronDown size={14} />
                     </span>
-
                     {/* Dropdown */}
                     <div className="absolute left-0 mt-2 w-56 bg-white border shadow-lg rounded-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-30">
                       <ul className="p-3 text-sm font-sans text-gray-600">
-                        {link === "About Us"
-                          ? ["Service Areas", "Testimonials"].map(
-                              (item, i, arr) => (
-                                <li key={i}>
-                                  <a
-                                    href="#"
-                                    className="block py-2 hover:text-[#EA5501]"
-                                  >
-                                    {item}
-                                  </a>
-                                  {i < arr.length - 1 && (
-                                    <hr className="border-gray-200 my-1" />
-                                  )}
-                                </li>
-                              )
-                            )
-                          : [
-                              "Cost Estimating Service",
-                              "Quantity Takeoff",
-                              "Material & Labor Pricing",
-                              "Bid Preparation",
-                              "Project Scheduling",
-                            ].map((item, i, arr) => (
-                              <li key={i}>
-                                <a
-                                  href="/blogs"
-                                  className="block py-2 hover:text-[#EA5501]"
-                                >
-                                  {item}
-                                </a>
-                                {i < arr.length - 1 && (
-                                  <hr className="border-gray-200 my-1" />
-                                )}
-                              </li>
-                            ))}
+                        {link.dropdown.map((item, i, arr) => (
+                          <li key={i}>
+                            <Link
+                              href={item.href}
+                              className="block py-2 hover:text-[#EA5501]"
+                            >
+                              {item.name}
+                            </Link>
+                            {i < arr.length - 1 && (
+                              <hr className="border-gray-200 my-1" />
+                            )}
+                          </li>
+                        ))}
                       </ul>
                     </div>
                   </>
@@ -225,78 +225,52 @@ export default function Navbar() {
                 <Menu size={26} />
               )}
             </button>
-
-            <div className="hidden md:block w-px h-28 bg-gray-300" />
-
-            {/* Call */}
-            <Link href="/contact-us">
-              <div className="hidden md:flex items-center gap-3">
-                <div className="w-12 h-12 flex items-center justify-center bg-[#EA5501] rounded-full">
-                  <Phone className="text-white" size={20} />
-                </div>
-                <div>
-                  <p className="text-xs font-sans text-gray-500 uppercase tracking-wide">
-                    Call Anytime
-                  </p>
-                  <p className="font-heading font-semibold text-gray-900">
-                    (346) 215-1585
-                  </p>
-                </div>
-              </div>
-            </Link>
           </div>
         </div>
 
         {/* 🔹 Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t shadow-lg p-6 space-y-6 font-sans">
+          <div className="md:hidden fixed top-20 left-0 w-full bg-white border-t shadow-lg p-6 space-y-6 font-sans z-40">
             {navLinks.map((link, idx) => (
               <div key={idx}>
-                {link === "Our Projects" ? (
+                {!link.dropdown ? (
                   <Link
-                    href="/projects"
-                    onClick={() => setMobileMenuOpen(false)} // ✅ close on click
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
                     className="block py-2 text-gray-700 font-medium hover:text-[#EA5501]"
                   >
-                    {link}
+                    {link.name}
                   </Link>
                 ) : (
                   <>
                     <button
                       className="flex justify-between items-center w-full text-gray-700 font-medium"
                       onClick={() =>
-                        setOpenDropdown(openDropdown === link ? null : link)
+                        setOpenDropdown(
+                          openDropdown === link.name ? null : link.name
+                        )
                       }
                     >
-                      {link}
+                      {link.name}
                       <ChevronDown
                         size={18}
                         className={`transition-transform ${
-                          openDropdown === link ? "rotate-180" : ""
+                          openDropdown === link.name ? "rotate-180" : ""
                         }`}
                       />
                     </button>
 
-                    {openDropdown === link && (
+                    {openDropdown === link.name && (
                       <div className="mt-2 ml-4 space-y-0 text-sm text-gray-600 border-l pl-3">
-                        {(link === "About Us"
-                          ? ["Service Areas", "Testimonials"]
-                          : [
-                              "Cost Estimating Service",
-                              "Quantity Takeoff",
-                              "Material & Labor Pricing",
-                              "Bid Preparation",
-                              "Project Scheduling",
-                            ]
-                        ).map((item, i, arr) => (
+                        {link.dropdown.map((item, i, arr) => (
                           <div key={i}>
-                            <a
-                              href="#"
-                              onClick={() => setMobileMenuOpen(false)} // ✅ sub-links also close
+                            <Link
+                              href={item.href}
+                              onClick={() => setMobileMenuOpen(false)}
                               className="block py-2 hover:text-[#EA5501]"
                             >
-                              {item}
-                            </a>
+                              {item.name}
+                            </Link>
                             {i < arr.length - 1 && (
                               <hr className="border-gray-200 my-1" />
                             )}
@@ -311,17 +285,14 @@ export default function Navbar() {
 
             {/* CTA Button */}
             <button
-              onClick={() => setMobileMenuOpen(false)} // ✅ close on click
+              onClick={() => setMobileMenuOpen(false)}
               className="w-full px-5 py-3 bg-[#EA5501] text-white rounded-lg shadow font-semibold"
             >
               Affordable Estimates (30% Off)
             </button>
 
             {/* Call Info */}
-            <Link
-              href="/contact-us"
-              onClick={() => setMobileMenuOpen(false)} // ✅ close on click
-            >
+            <Link href="/contact-us" onClick={() => setMobileMenuOpen(false)}>
               <div className="flex items-center gap-3 bg-gray-50 p-4 rounded-lg shadow">
                 <div className="w-12 h-12 flex items-center justify-center bg-[#EA5501] rounded-full">
                   <Phone className="text-white" size={20} />
@@ -341,7 +312,7 @@ export default function Navbar() {
       </header>
 
       {/* 🔹 Main Content Padding */}
-      <main className="pt-40">{/* Page Content */}</main>
+      <main className="pt-24">{/* Page Content */}</main>
 
       {/* 🔹 Search Overlay */}
       {searchOpen && (
@@ -398,7 +369,7 @@ export default function Navbar() {
         >
           <div
             className={`bg-white w-96 h-full shadow-lg p-8 relative overflow-y-auto transform transition-transform duration-500 ${
-              closing ? "animate-slide-out" : "animate-slide-in"
+              closing ? "translate-x-full" : "translate-x-0"
             }`}
             onClick={(e) => e.stopPropagation()}
           >

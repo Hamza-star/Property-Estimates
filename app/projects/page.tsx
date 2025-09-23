@@ -174,7 +174,7 @@ export default function ProjectsPage() {
               <motion.img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-80 object-cover brightness-90 rounded-3xl transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-80 object-cover brightness-90 rounded-xl transition-transform duration-500 group-hover:scale-110"
               />
               {/* Overlay with "View Details" */}
               <motion.div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500">
@@ -219,7 +219,7 @@ export default function ProjectsPage() {
                 <img
                   src={selectedProject.image}
                   alt={selectedProject.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 rounded-md object-cover"
                 />
 
                 {/* Scrollable Content */}

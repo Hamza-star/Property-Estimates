@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function MovingLine2() {
   return (
-    <div className="w-full overflow-hidden bg-white -mt-7">
+    <div className="w-full overflow-hidden bg-white ">
       <motion.div
         className="flex"
         animate={{ x: ["0%", "-100%"] }}

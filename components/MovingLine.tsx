@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function MovingLine() {
   return (
-    <div className="w-full overflow-hidden bg-white -mt-11">
+    <div className="w-full overflow-hidden bg-white -mt-12">
       <motion.div
         className="flex"
         animate={{ x: ["0%", "-100%"] }}
@@ -20,8 +20,8 @@ export default function MovingLine() {
           <Image
             src="/global-line-shape1.png" // apka global line image
             alt="moving line"
-            width={1800}
-            height={30}
+            width={2100}
+            height={10}
             className="object-cover"
           />
         </div>
@@ -31,8 +31,8 @@ export default function MovingLine() {
           <Image
             src="/global-line-shape1.png"
             alt="moving line duplicate"
-            width={1800}
-            height={30}
+            width={2100}
+            height={100}
             className="object-cover"
           />
         </div>
