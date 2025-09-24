@@ -35,8 +35,8 @@ export default function Navbar() {
       name: "About Us",
       href: "/about",
       dropdown: [
-        { name: "Service Areas", href: "/about/service-areas" },
-        { name: "Testimonials", href: "/about/testimonials" },
+        { name: "Service Areas", href: "/about" },
+        { name: "Testimonials", href: "/testimonials" },
       ],
     },
     {
@@ -126,7 +126,7 @@ export default function Navbar() {
   return (
     <>
       {/* Navbar */}
-      <header className="fixed top-0 left-0 w-full z-50 bg-white font-mono ">
+      <header className="fixed top-0 left-0 w-full z-50 bg-[#FAFAFA] font-mono ">
         <div className="max-w-screen-xl mx-auto flex items-center justify-between px-6 md:px-12 h-20 relative">
           {/* Logo */}
           <div className="flex items-center gap-6">
