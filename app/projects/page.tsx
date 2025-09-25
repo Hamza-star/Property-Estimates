@@ -104,7 +104,7 @@ export default function ProjectsPage() {
 
   return (
     <>
-      <main className="min-h-screen py-20  -mt-12 px-6 md:px-16">
+      <main className="min-h-screen py-20 bg-white  -mt-8 px-6 md:px-16">
         {/* Main Heading */}
         <motion.h1
           className="text-5xl font-bold text-gray-900 text-center mb-6"

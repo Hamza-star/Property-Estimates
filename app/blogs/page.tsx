@@ -77,10 +77,10 @@ const BlogSection = () => {
 
   return (
     <>
-      <section className="py-20 -mt-16 text-black">
+      <section className="py-20 -mt-8 bg-white text-black">
         <div className="container mx-auto px-6 text-center max-w-6xl">
           {/* Heading */}
-          <h2 className="text-4xl font-extrabold mb-4 tracking-tight text-[#EA5501]">
+          <h2 className="text-4xl font-extrabold mb-4 tracking-tight text-black">
             From the Blog
           </h2>
           <p className="text-lg text-gray-600 mb-14 max-w-2xl mx-auto">

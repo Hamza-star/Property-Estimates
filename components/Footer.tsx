@@ -47,9 +47,9 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-6 text-orange-500 shrink-0" />
                 <div>
-                  <h4 className="font-bold text-white">USA</h4>
+                  <h4 className="font-bold text-white">CANDA</h4>
                   <p className="text-sm mt-1.5">
-                    5380 WALZEM RD, SAN ANTONIO, TEXAS, 78218
+                    5 Simcoe Street S #201 Oshawa ON L1H 8C1
                   </p>
                 </div>
               </div>
@@ -58,7 +58,7 @@ export default function Footer() {
                 <Phone className="w-4 h-6 text-orange-500 shrink-0" />
                 <div>
                   <h4 className="font-bold text-white">Phone Number</h4>
-                  <p className="text-sm mt-1.5">(346) 215-1585</p>
+                  <p className="text-sm mt-1.5">(289) 801 7224</p>
                 </div>
               </div>
 

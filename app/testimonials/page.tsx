@@ -1,4 +1,5 @@
 "use client";
+import CtaSection from "@/components/CtaSection";
 import { motion } from "framer-motion";
 import { useMemo } from "react";
 
@@ -132,23 +133,26 @@ export default function BentoTestimonials() {
   };
 
   return (
-    <section className="py-24  overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">
-        {/* Heading */}
-        <h6 className="text-[#EA5501] text-sm font-semibold uppercase tracking-wide">
-          Testimonials
-        </h6>
-        <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-3 mb-12">
-          What Our Clients Say
-        </h2>
+    <>
+      <section className="py-24  overflow-hidden relative">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center relative z-10">
+          {/* Heading */}
+          <h6 className="text-[#EA5501] text-sm font-semibold uppercase tracking-wide">
+            Testimonials
+          </h6>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mt-3 mb-12">
+            What Our Clients Say
+          </h2>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 h-[600px] overflow-hidden">
-          <ScrollColumn items={columns[0]} duration={25} />
-          <ScrollColumn items={columns[1]} duration={30} />
-          <ScrollColumn items={columns[2]} duration={35} />
+          {/* Bento Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 h-[600px] overflow-hidden">
+            <ScrollColumn items={columns[0]} duration={25} />
+            <ScrollColumn items={columns[1]} duration={30} />
+            <ScrollColumn items={columns[2]} duration={35} />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <CtaSection />
+    </>
   );
 }

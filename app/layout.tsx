@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
+import CookieConsent from "@/components/CookieConsent";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -76,7 +77,10 @@ export default function RootLayout({
         <Navbar />
 
         <TopLoader />
-        <main className="bg-[#FAFAFA]">{children}</main>
+        <main className="bg-white">
+          {children}
+          <CookieConsent />
+        </main>
         <Toaster richColors position="top-center" />
         <Footer />
       </body>

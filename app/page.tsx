@@ -1,3 +1,4 @@
+import AboutUs from "@/components/AboutUs";
 import BlogsSection from "@/components/BlogsSection";
 import BrandLogosStrip from "@/components/BrandLogosStrip";
 import CtaSection from "@/components/CtaSection";
@@ -8,7 +9,7 @@ import Testimonials from "@/components/Testimonials";
 import VideoHero from "@/components/VideoHero";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import WorkProcess from "@/components/WorkProcess";
-import AboutUs from "./about/page";
+// import AboutUs from "./about/page";
 
 export default function Home() {
   return (
@@ -16,9 +17,9 @@ export default function Home() {
       <MovingLine />
       <HeroSection />
 
-      {/* <AboutUs /> */}
       <AboutUs />
-      {/* <VideoHero /> */}
+      {/* <AboutUs /> */}
+      <VideoHero />
       <ServicesSection />
       {/* <OurJourney /> */}
       <BrandLogosStrip />

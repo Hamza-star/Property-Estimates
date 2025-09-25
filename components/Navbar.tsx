@@ -1,22 +1,21 @@
 "use client";
-import { useState, useEffect } from "react";
-import Image from "next/image";
 import {
-  ChevronDown,
-  Search,
-  Grid,
   ArrowRight,
-  Phone,
-  X,
-  MapPin,
+  ChevronDown,
   Facebook,
+  Grid,
   Instagram,
   Linkedin,
-  Menu,
   Mail,
+  MapPin,
+  Menu,
+  Phone,
+  Search,
+  X,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import MovingLine from "./MovingLine";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -126,7 +125,7 @@ export default function Navbar() {
   return (
     <>
       {/* Navbar */}
-      <header className="fixed top-0 left-0 w-full z-50 bg-[#FAFAFA] font-mono ">
+      <header className="fixed top-0 left-0 w-full z-50 bg-white font-mono ">
         <div className="max-w-screen-xl mx-auto flex items-center justify-between px-6 md:px-12 h-20 relative">
           {/* Logo */}
           <div className="flex items-center gap-6">
@@ -183,12 +182,14 @@ export default function Navbar() {
             ))}
 
             {/* CTA Button */}
-            <button className="px-5 py-2 cursor-pointer bg-[#EA5501] text-white font-heading font-semibold rounded-full flex items-center gap-2 group text-sm shadow hover:shadow-lg transition">
-              <span>Affordable Estimates (30% Off)</span>
-              <span className="p-1 rounded-full bg-white/20 group-hover:translate-x-1 transition-transform">
-                <ArrowRight size={14} />
-              </span>
-            </button>
+            <Link href="/contact-us">
+              <button className="px-5 py-2 cursor-pointer bg-[#EA5501] text-white font-heading font-semibold rounded-full flex items-center gap-2 group text-sm shadow hover:shadow-lg transition">
+                <span>Affordable Estimates (30% Off)</span>
+                <span className="p-1 rounded-full bg-white/20 group-hover:translate-x-1 transition-transform">
+                  <ArrowRight size={14} />
+                </span>
+              </button>
+            </Link>
           </nav>
 
           {/* Right Side */}

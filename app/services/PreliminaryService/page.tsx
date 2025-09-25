@@ -5,12 +5,12 @@ import Link from "next/link";
 
 export default function PreliminaryService() {
   return (
-    <div className="max-w-screen-xl mx-auto px-6 lg:px-12 py-12 font-sans flex flex-col lg:flex-row gap-10">
+    <div className="max-w-screen-xl mx-auto bg-white px-6 lg:px-12 py-12 font-sans flex flex-col lg:flex-row gap-10">
       {/* LEFT CONTENT */}
       <article className="flex-1 space-y-8">
         {/* Breadcrumb */}
         <p className="text-sm text-gray-500">
-          Home »{" "}
+          <Link href="/">Home » </Link>
           <span className="text-[#EA5501]">Preliminary Estimate Services</span>
         </p>
 
@@ -26,13 +26,26 @@ export default function PreliminaryService() {
         {/* Hero Image */}
         <div className="w-full h-[380px] relative rounded-2xl overflow-hidden shadow">
           <Image
-            src="/s8.png"
+            src="/p.avif"
             alt="Preliminary Estimate Services"
             fill
             className="object-cover"
             priority
           />
         </div>
+
+        {/* What & Why */}
+        <section>
+          <h2 className="text-2xl font-bold text-gray-900 mb-3">
+            What is a Preliminary Cost Estimate and Why Does It Matter?
+          </h2>
+          <p className="text-gray-700 leading-relaxed">
+            A preliminary estimate is an approximate cost calculated during the
+            conceptual stage of a project. It provides builders, owners, and
+            developers with an early understanding of potential costs and helps
+            determine feasibility, budgeting, and planning.
+          </p>
+        </section>
 
         {/* Highlight Box */}
         <div className="bg-[#EA5501]/10 p-6 rounded-xl shadow-sm">
@@ -51,19 +64,6 @@ export default function PreliminaryService() {
             <ArrowRight size={16} />
           </Link>
         </div>
-
-        {/* What & Why */}
-        <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">
-            What is a Preliminary Cost Estimate and Why Does It Matter?
-          </h2>
-          <p className="text-gray-700 leading-relaxed">
-            A preliminary estimate is an approximate cost calculated during the
-            conceptual stage of a project. It provides builders, owners, and
-            developers with an early understanding of potential costs and helps
-            determine feasibility, budgeting, and planning.
-          </p>
-        </section>
 
         {/* Types of Estimates */}
         <section>
@@ -221,31 +221,84 @@ export default function PreliminaryService() {
         <div className="bg-white shadow p-6 rounded-xl">
           <h3 className="text-lg font-bold text-gray-900 mb-3">Our Services</h3>
           <ul className="space-y-2 text-gray-700 text-sm">
-            <li>Cost Estimating</li>
-            <li>Construction Takeoff</li>
-            <li>Quantity Takeoff Services</li>
-            <li>Residential Estimating</li>
-            <li>Commercial Estimating</li>
-            <li>Industrial Estimating</li>
-            <li>Preliminary Estimates</li>
-            <li>Estimating Consultant</li>
-            <li>Construction Estimator Sydney</li>
-            <li>Building Estimator Melbourne</li>
-            <li>Virtual Bid Management</li>
+            <Link href="/">
+              <li className="hover:text-[#EA5501] mb-2">Cost Estimating</li>
+            </Link>
+
+            <Link href="/">
+              <li className="hover:text-[#EA5501] mb-2">
+                Construction Takeoff
+              </li>
+            </Link>
+
+            <Link href="/">
+              <li className="hover:text-[#EA5501] mb-2">
+                Quantity Takeoff Services
+              </li>
+            </Link>
+
+            <Link href="/">
+              <li className="hover:text-[#EA5501] mb-2">
+                Residential Estimating
+              </li>
+            </Link>
+
+            <Link href="/">
+              <li className="hover:text-[#EA5501] mb-2">
+                Commercial Estimating
+              </li>
+            </Link>
+
+            <Link href="/">
+              <li className="hover:text-[#EA5501] mb-2">
+                Industrial Estimating
+              </li>
+            </Link>
+
+            <Link href="/">
+              <li className="hover:text-[#EA5501] mb-2">
+                Preliminary Estimates
+              </li>
+            </Link>
+
+            <Link href="/">
+              <li className="hover:text-[#EA5501] mb-2">
+                Estimating Consultant
+              </li>
+            </Link>
+
+            <Link href="/">
+              <li className="hover:text-[#EA5501] mb-2">
+                Construction Estimator Sydney
+              </li>
+            </Link>
+
+            <Link href="/">
+              <li className="hover:text-[#EA5501] mb-2">
+                Building Estimator Melbourne
+              </li>
+            </Link>
+
+            <Link href="/">
+              <li className="hover:text-[#EA5501] mb-2">
+                Virtual Bid Management
+              </li>
+            </Link>
           </ul>
         </div>
 
         {/* Contact Info */}
         <div className="bg-white shadow p-6 rounded-xl text-sm space-y-2">
           <p className="flex items-center gap-2">
-            <Phone size={16} className="text-[#EA5501]" /> (737) 273-3314 (US)
+            <Phone size={16} className="text-[#EA5501]" /> (289) 801 7224
+            (CANDA)
           </p>
           <p className="flex items-center gap-2">
-            <Phone size={16} className="text-[#EA5501]" /> (048) 862-0354 (AUS)
+            {/* <Phone size={16} className="text-[#EA5501]" /> (048) 862-0354 (AUS) */}
           </p>
           <p className="flex items-center gap-2">
             <Mail size={16} className="text-[#EA5501]" />{" "}
-            info@constructestimates.com
+            Info@bennyestimates.com
           </p>
         </div>
       </aside>
